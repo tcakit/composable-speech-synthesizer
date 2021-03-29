@@ -5,7 +5,7 @@ import Foundation
 
 #if DEBUG
     public extension SpeechSynthesizerManager {
-        static func mock() -> Self { Self() }
+        static func unimplemented() -> Self { Self() }
     }
 
 #endif
