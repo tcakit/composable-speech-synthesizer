@@ -37,7 +37,7 @@ public extension SpeechSynthesizerManager {
             manager.speak = { id, utterance in
                 .fireAndForget {
                     do {
-                        try AVAudioSession.sharedInstance().setCategory(.playback, mode: .spokenAudio, options: .mixWithOthers)
+                        try AVAudioSession.sharedInstance().setCategory(.playback, mode: .spokenAudio, options: .duckOthers)
                         dependencies[id]?.speechSynthesizer.speak(utterance)
                     } catch {
                         os_log("%@", error.localizedDescription)
@@ -50,7 +50,7 @@ public extension SpeechSynthesizerManager {
             manager.continueSpeaking = { id in
                 .fireAndForget {
                     do {
-                        try AVAudioSession.sharedInstance().setCategory(.playback, mode: .spokenAudio, options: .mixWithOthers)
+                        try AVAudioSession.sharedInstance().setCategory(.playback, mode: .spokenAudio, options: .duckOthers)
                         dependencies[id]?.speechSynthesizer.continueSpeaking()
                     } catch {
                         os_log("%@", error.localizedDescription)
